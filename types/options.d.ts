@@ -45,6 +45,11 @@ export interface NodeHtmlToImageOptions {
    */
   beforeScreenshot?: Function;
   /**
+   * The element to capture.
+   * @default The document body.
+   */
+  elementSelector?: string;
+  /**
    * The transparent property lets you generate images with transparent background (for png type).
    */
   transparent?: boolean;
