@@ -8,11 +8,12 @@ module.exports = function(options) {
   const {
     puppeteerArgs = {},
   } = options;
+  if (typeof puppeteerArgs.headless === "undefined") puppeteerArgs.headless = true;
 
   const _cp = Cluster.launch({
     concurrency: Cluster.CONCURRENCY_CONTEXT,
     maxConcurrency: 2,
-    puppeteerOptions: { ...puppeteerArgs, headless: true },
+    puppeteerOptions: puppeteerArgs
   });
 
   instance.shutdown = async () => {
